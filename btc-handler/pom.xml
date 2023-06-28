@@ -103,6 +103,13 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.coveo</groupId>
+				<artifactId>fmt-maven-plugin</artifactId> // предлагаю сразу привыкать к красивому
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId> // предлагаю сразу привыкать к красивому
+			</plugin>
 		</plugins>
 	</build>
 
