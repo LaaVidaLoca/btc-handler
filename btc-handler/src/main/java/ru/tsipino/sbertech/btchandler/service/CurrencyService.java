@@ -1,5 +1,6 @@
 package ru.tsipino.sbertech.btchandler.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.tsipino.sbertech.btchandler.HTMLCurrencyParser;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
+@Slf4j
 public class CurrencyService implements ICurrencyService {
 
     private ParametersRepository parametersRepository;
@@ -27,6 +29,7 @@ public class CurrencyService implements ICurrencyService {
     @Override
     public void updateCurrencies() {
         List<CurrencyParameters> parametersList = parametersRepository.findAll();
+        log.info("test");
         parametersList.stream().forEach(item -> {
             String html = HTMLExtractor.getHTML(item.getUrl());
             Double value = HTMLCurrencyParser.getCurrencyValue(html);
