@@ -1,6 +1,7 @@
 package ru.tsipino.sbertech.btchandler.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import ru.tsipino.sbertech.btchandler.HTMLCurrencyParser;
 import ru.tsipino.sbertech.btchandler.HTMLExtractor;
@@ -12,7 +13,7 @@ import ru.tsipino.sbertech.btchandler.repository.ParametersRepository;
 import java.io.IOException;
 import java.util.List;
 
-@Service
+@Component // будем вызывать в UpdateCurrencyScheduler, НО в принципе что аннотация сервис что компонент одна фигня
 public class CurrencyService implements ICurrencyService {
 
     private ParametersRepository parametersRepository;
