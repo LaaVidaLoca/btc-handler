@@ -1,5 +1,6 @@
-package ru.tsipino.sbertech.btchandler;
+package ru.tsipino.sbertech.btchandler.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -9,6 +10,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 
+@Slf4j
 public class HTMLExtractor  {
     public static String getHTML(String url) {
         CloseableHttpClient client = HttpClients.createDefault();
@@ -19,7 +21,7 @@ public class HTMLExtractor  {
             HttpEntity entity = response.getEntity();
             html = EntityUtils.toString(entity);
         } catch (IOException e) {
-            System.out.println();
+            log.error("Can't extract HTML");
         }
         return html;
     }

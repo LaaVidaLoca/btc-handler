@@ -1,4 +1,4 @@
-package ru.tsipino.sbertech.btchandler.models;
+package ru.tsipino.sbertech.btchandler.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

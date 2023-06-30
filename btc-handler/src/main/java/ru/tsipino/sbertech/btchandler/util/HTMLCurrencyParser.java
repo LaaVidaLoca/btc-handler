@@ -1,4 +1,5 @@
-package ru.tsipino.sbertech.btchandler;
+package ru.tsipino.sbertech.btchandler.util;
+
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
