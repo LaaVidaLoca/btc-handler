@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository;
 import ru.tsipino.sbertech.btchandler.entity.Currency;
 
 @Repository
-public interface CurrencyRepository extends JpaRepository<Currency,Long> {
-}
+public interface CurrencyRepository extends JpaRepository<Currency, Long> {}
