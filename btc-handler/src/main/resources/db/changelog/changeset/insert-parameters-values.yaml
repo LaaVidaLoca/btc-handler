@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-parameters-values
+      author: Dmitry
+      changes:
+        - insert:
+            tableName: parameters
+            columns:
+              - column:
+                  name: type
+                  value: BTC/USD
+              - column:
+                  name: url
+                  value: https://www.rbc.ru/crypto/currency/btcusd
+        - insert:
+            tableName: parameters
+            columns:
+              - column:
+                  name: type
+                  value: ETH/USD
+              - column:
+                  name: url
+                  value: https://www.rbc.ru/crypto/currency/ethusd
+
+
