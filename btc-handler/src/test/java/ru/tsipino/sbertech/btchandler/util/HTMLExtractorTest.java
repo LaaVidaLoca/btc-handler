@@ -1,45 +1,32 @@
 package ru.tsipino.sbertech.btchandler.util;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.util.EntityUtils;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class HTMLExtractorTest {
 
-    @Mock private CloseableHttpClient client;
+  @InjectMocks private HTMLExtractor extractor;
 
-    @Mock private CloseableHttpResponse response;
+  @Test
+  void getHTML_null_response() {
+    final String url = "http://localhost:8080";
 
-    @Mock private HttpEntity entity;
+    String resultHtml = extractor.getHTML(url);
 
-    @InjectMocks private HTMLExtractor extractor;
+    assertNull(resultHtml);
+  }
 
-    @Test
-    void getHTML() throws IOException {
-        final String url = "https://example.com";
-        when(client.execute(any(HttpGet.class))).thenReturn(response);
-        when(response.getEntity()).thenReturn(entity);
-        when(EntityUtils.toString(entity)).thenReturn("some HTML");
+  @Test
+  void getHTML_ok_response() {
+    final String url = "https://google.com";
 
-        String resultHtml = extractor.getHTML(url);
+    String resultHtml = extractor.getHTML(url);
 
-        verify(client).execute(any(HttpGet.class));
-        verify(response).getEntity();
-    }
+    assertNotNull(resultHtml);
+  }
 }
