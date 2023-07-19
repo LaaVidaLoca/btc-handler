@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/changelog/changeset/insert-parameters-values.yaml
+  - include:
+      file: db/changelog/changeset/insert-new-parameters-values.yaml

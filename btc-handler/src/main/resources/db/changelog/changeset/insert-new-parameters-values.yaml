@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-new-parameters-values
+      author: Dmitry
+      changes:
+        - insert:
+            tableName: parameters
+            columns:
+              - column:
+                  name: type
+                  value: XMR/USD
+              - column:
+                  name: url
+                  value: https://www.rbc.ru/crypto/currency/xmrusd
+        - insert:
+            tableName: parameters
+            columns:
+              - column:
+                  name: type
+                  value: LTC/USD
+              - column:
+                  name: url
+                  value: https://www.rbc.ru/crypto/currency/ltcusd
+        - insert:
+            tableName: parameters
+            columns:
+              - column:
+                  name: type
+                  value: USDT/USD
+              - column:
+                  name: url
+                  value: https://www.rbc.ru/crypto/currency/ustusd
